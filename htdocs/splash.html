@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-16x16.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="splash.css" />
+    <title>BIXBDWifi Hotspot</title>
+  </head>
+  <body>
+    <header>
+      <img src="/images/logo.png" alt="" />
+      <h1>BIXBDWifi Hotspot</h1>
+    </header>
+    <main>
+      <h2>Welcome!</h2>
+      <h2>MAC: $clientmac</h2>
+      <p id="error"></p>
+      <p id="success"></p>
+      <p id="details" class="instructions"></p>
+      <p id="description" class="instructions">
+        For access to the Internet, please enter your voucher number below and
+        click Enter.
+      </p>
+      <form id="access_form" method="GET" action="$authaction">
+        <input type="hidden" name="tok" value="$tok" />
+        <input type="hidden" name="redir" value="$redir" />
+        <input
+          type="hidden"
+          id="router"
+          name="router"
+          value="router-jatabari-romjan"
+        />
+        <input
+          type="hidden"
+          id="macAddress"
+          name="macAddress"
+          value="$clientmac"
+        />
+        <input
+          type="hidden"
+          id="ipAddress"
+          name="ipAddress"
+          value="$clientip"
+        />
+        <input value="600" type="hidden" id="password" name="password" />
+        <input value="" id="username" type="hidden" name="username" required />
+      </form>
+      <form id="loginForm">
+        <div class="input_wrapper">
+          <label for="voucher">Voucher Number:</label>
+          <input
+            type="number"
+            placeholder="Token"
+            id="voucher"
+            name="voucher"
+            minlength="8"
+            required
+          />
+        </div>
+
+        <button id="submit_button" type="submit">Enter</button>
+      </form>
+    </main>
+    <footer>
+      <p>&copy; 2024 BixWifi - Connecting you to the internet.</p>
+    </footer>
+    <script src="/app.js"></script>
+  </body>
+</html>

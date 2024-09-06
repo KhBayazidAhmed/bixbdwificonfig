@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="stylesheet" href="/splash.css" />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-16x16.png"
+      type="image/x-icon"
+    />
+    <title>BIXBDWifi Hotspot</title>
+  </head>
+  <body>
+    <header>
+      <img src="/images/logo.png" alt="Logo" />
+      <h1>BIXBDWifi Hotspot</h1>
+    </header>
+    <main>
+      <h2>Welcome!</h2>
+      <h2>MAC: $clientmac</h2>
+        You are now connected to the internet. Here are your details:
+      </p>
+      <input type="hidden" id="download_value" value="$clientdownload">
+      <input type="hidden" id="upload_value" value="$clientupload">
+      <div class="network-details">
+        <p>IP Address: $clientip</p>
+        <p id="download_show"></p>
+        <p id="upload_show"></p>
+        <p>Active Users in this Router: $nclients</p>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2024 BixWifi - Connecting you to the internet.</p>
+    </footer>
+    <script>
+      let downloadValue = document.getElementById("download_value");
+      let uploadValue = document.getElementById("upload_value");
+      let downloadShow = document.getElementById("download_show");
+      let uploadShow = document.getElementById("upload_show");
+
+      let clientDownloadInMB = (parseInt(downloadValue.value, 10) / (1024 * 1024)).toFixed(2);
+      let clientUploadInMB = (parseInt(uploadValue.value, 10) / (1024 * 1024)).toFixed(2);
+
+      // Update the display elements with the converted values
+      downloadShow.innerText = "Download: " + clientDownloadInMB + " MB";
+      uploadShow.innerText = "Upload: " + clientUploadInMB + " MB";
+    </script>
+  </body>
+</html>

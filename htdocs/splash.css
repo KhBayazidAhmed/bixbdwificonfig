@@ -1,0 +1,140 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vh;
+  background-color: #f4f4f4;
+  color: #333;
+}
+#error {
+  justify-content: center;
+  display: none;
+  color: red;
+}
+#success {
+  text-align: center;
+  justify-content: center;
+  display: none;
+  color: green;
+}
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 24px;
+  background: linear-gradient(
+    to right,
+    #19a7ce,
+    #146c94
+  ); /* Gradient background */
+  -webkit-background-clip: text; /* Apply gradient to text */
+  -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+}
+
+main {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #555;
+}
+
+.instructions {
+  margin-bottom: 20px;
+  color: #777;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.input_wrapper {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#submit_button {
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #19a7ce;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submit_button:hover {
+  background-color: #19a7ce;
+}
+.network-details {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.network-details p {
+  margin: 8px 0;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #aaa;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .hero-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="submit"] {
+    font-size: 14px;
+  }
+  .network-details {
+    padding: 10px;
+  }
+}
