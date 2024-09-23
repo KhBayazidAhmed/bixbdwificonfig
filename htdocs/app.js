@@ -10,7 +10,6 @@ let password = document.getElementById("password");
 let username = document.getElementById("username");
 let details = document.getElementById("details");
 let description = document.getElementById("description");
-
 async function CheckValidity() {
   submitButton.innerText = "Loading...";
   let disabledAttr = document.createAttribute("disabled");
@@ -20,7 +19,7 @@ async function CheckValidity() {
   const raw = JSON.stringify({
     token: voucherToken.value,
     macAddress: macAddress.value,
-    userAgent: navigator.userAgent,
+    userAgent: navigator.userAgent.match(/\(([^)]+)\)/)[1],
     router: router.value,
     ipAddress: ipAddress.value,
   });
@@ -46,6 +45,7 @@ async function CheckValidity() {
       details.innerText = response.validity + " Package";
       description.style.display = "none";
       localStorage.setItem("voucherToken", voucherToken.value);
+      accessForm.preventDefault();
       accessForm.submit();
     } else {
       success.style.display = "none";
@@ -71,7 +71,6 @@ document
   .getElementById("submit_button")
   .addEventListener("click", async function (e) {
     e.preventDefault();
-
     if (!voucherToken.value || voucherToken.value.length < 8) {
       error.style.display = "flex";
       error.innerText = "The token must be in 8 Digit";
