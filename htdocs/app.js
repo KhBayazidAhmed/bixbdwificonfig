@@ -17,7 +17,6 @@ async function CheckValidity() {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   const raw = JSON.stringify({
-    token: voucherToken.value,
     macAddress: macAddress.value,
     userAgent: navigator.userAgent.match(/\(([^)]+)\)/)[1],
     router: router.value,
@@ -31,11 +30,10 @@ async function CheckValidity() {
   };
   try {
     let res = await fetch(
-      "https://bixbdwifi.vercel.app/api/v1/validate",
+      "https://bixbdwifi.vercel.app/api/v1/get-token",
       requestOptions
     );
     let response = await res.json();
-
     if (response.success) {
       error.style.display = "none";
       success.style.display = "flex";
@@ -47,26 +45,18 @@ async function CheckValidity() {
       localStorage.setItem("voucherToken", voucherToken.value);
       accessForm.preventDefault();
       accessForm.submit();
-    } else {
-      success.style.display = "none";
-      error.style.display = "flex";
-      error.innerText = response.message;
-      localStorage.clear();
     }
     submitButton.innerText = "Enter";
     submitButton.attributes.removeNamedItem("disabled");
   } catch (error) {
-    console.log(error.message);
     submitButton.innerText = "Enter";
     submitButton.attributes.removeNamedItem("disabled");
     localStorage.clear();
   }
 }
-let token = localStorage.getItem("voucherToken");
-if (token) {
-  voucherToken.value = token;
-  CheckValidity();
-}
+
+CheckValidity();
+
 document
   .getElementById("submit_button")
   .addEventListener("click", async function (e) {
@@ -84,7 +74,7 @@ document
     const raw = JSON.stringify({
       token: voucherToken.value,
       macAddress: macAddress.value,
-      userAgent: navigator.userAgent,
+      userAgent: navigator.userAgent.match(/\(([^)]+)\)/)[1],
       router: router.value,
       ipAddress: ipAddress.value,
     });
