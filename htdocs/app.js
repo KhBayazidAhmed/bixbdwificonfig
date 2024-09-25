@@ -43,7 +43,6 @@ async function CheckValidity() {
       details.innerText = response.validity + " Package";
       description.style.display = "none";
       localStorage.setItem("voucherToken", voucherToken.value);
-      accessForm.preventDefault();
       accessForm.submit();
     }
     submitButton.innerText = "Enter";
@@ -100,7 +99,6 @@ document
         username.value = voucherToken.value;
         details.innerText = response.validity + " Package";
         description.style.display = "none";
-        localStorage.setItem("voucherToken", voucherToken.value);
         accessForm.submit();
       } else {
         success.style.display = "none";
